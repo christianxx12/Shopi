@@ -1,15 +1,15 @@
-import { useRoutes, BrowserRouter } from 'react-router-dom';
-import { ShoppingCartProvider } from '../../Context';
+import { useRoutes, BrowserRouter } from 'react-router-dom'
+import { ShoppingCartProvider } from '../../Context'
 
-import { Home } from '../Home';
-import { MyAccount } from '../MyAccount';
-import { MyOrder } from '../MyOrder';
-import { MyOrders } from '../MyOrders';
-import { NotFound } from '../NotFound';
-import { SignIn } from '../SignIn';
-import { Navbar } from '../../Components/Navbar';
+import Home from '../Home'
+import MyAccount from '../MyAccount'
+import MyOrder from '../MyOrder'
+import MyOrders from '../MyOrders'
+import NotFound from '../NotFound'
+import SignIn from '../SignIn'
+import { Navbar } from '../../Components/Navbar'
 
-import './App.css';
+import './App.css'
 
 function AppRoutes() {
   let routes = useRoutes([
@@ -19,9 +19,9 @@ function AppRoutes() {
     { path: '/my-account', element: <MyAccount /> },
     { path: '/signin', element: <SignIn /> },
     { path: '/*', element: <NotFound /> },
-  ]);
+  ])
 
-  return routes;
+  return routes
 }
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
         <Navbar />
       </BrowserRouter>
     </ShoppingCartProvider>
-  );
+  )
 }
 
-export default App;
+export default App

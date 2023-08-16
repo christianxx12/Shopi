@@ -1,18 +1,21 @@
-import { createContext, useState } from 'react';
+import { createContext, useState } from 'react'
 
-export const ShoppingCartContext = createContext();
+export const ShoppingCartContext = createContext()
 
-export function ShoppingCartProvider({ children }) {
+export const ShoppingCartProvider = ({ children }) => {
   // Shopping Cart · Increment quantity
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   // Product Detail · Open/Close
-  const [isProductDetailOpen, setIsProductDetailOpen] = useState(false);
-  const openProductDetail = () => setIsProductDetailOpen(true);
-  const closeProductDetail = () => setIsProductDetailOpen(false);
+  const [isProductDetailOpen, setIsProductDetailOpen] = useState(false)
+  const openProductDetail = () => setIsProductDetailOpen(true)
+  const closeProductDetail = () => setIsProductDetailOpen(false)
 
   // Product Detail · Show product
-  const [productToShow, setProductToShow] = useState({});
+  const [productToShow, setProductToShow] = useState({})
+
+  // Shopping Cart · Add products to cart
+  const [cartProducts, setCartProducts] = useState([])
 
   return (
     <ShoppingCartContext.Provider
@@ -24,9 +27,11 @@ export function ShoppingCartProvider({ children }) {
         isProductDetailOpen,
         productToShow,
         setProductToShow,
+        cartProducts,
+        setCartProducts,
       }}
     >
       {children}
     </ShoppingCartContext.Provider>
-  );
+  )
 }
